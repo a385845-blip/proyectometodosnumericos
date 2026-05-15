@@ -5,7 +5,7 @@ import pandas as pd
 
 # --- CONFIGURACIÓN DE LA PÁGINA ---
 st.set_page_config(page_title="Calculadora Numérica Pro", layout="wide")
-st.title("🧮 Solucionador con Análisis de Error")
+st.title("🧮 Calculadora de Métodos Numéricos")
 
 # --- MÉTODOS CON CÁLCULO DE ERROR ---
 
@@ -63,8 +63,8 @@ def secante(f, x0, x1, tol, max_iter):
     return x1, max_iter, historial_error
 
 # --- INTERFAZ LATERAL ---
-st.sidebar.header("⚙️ Configuración")
-func_input = st.sidebar.text_input("Función f(x):", "x**2 - 4")
+st.sidebar.header("Datos del problema")
+func_input = st.sidebar.text_input("Función f(x):", "x**2 - 4 (ejemplo)")
 metodo = st.sidebar.selectbox("Método:", ["Bisección", "Falsa Posición", "Newton-Raphson", "Secante"])
 tol = st.sidebar.number_input("Tolerancia:", value=1e-5, format="%.1e")
 max_iter = st.sidebar.number_input("Iteraciones máx:", value=50)
