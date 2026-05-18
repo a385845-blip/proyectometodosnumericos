@@ -188,25 +188,7 @@ if st.sidebar.button("Calcular"):
             })
             st.dataframe(df_err)
            
-            # Hacer la gráfica
-            st.subheader("Gráfica:")
-            fig, ax = plt.subplots()
-           
-            # Rango de la gráfica basado en la raíz
-            x_valores = np.linspace(raiz - 3, raiz + 3, 200)
-            y_valores = []
-            for xi in x_valores:
-                y_valores.append(f(xi))
-               
-            ax.plot(x_valores, y_valores, label="f(x)", color="blue")
-            ax.axhline(0, color="black") # Eje horizontal
-            ax.axvline(0, color="black") # Eje vertical
-            ax.plot(raiz, 0, marker="o", color="red", label=f"Raíz: {raiz:.4f}")
-           
-            ax.set_title("Gráfica de la función")
-            ax.grid(True)
-            ax.legend()
-            st.pyplot(fig)
+            
            
     except Exception as e:
         st.error(f"Hubo un error en los datos o la función: {e}")
