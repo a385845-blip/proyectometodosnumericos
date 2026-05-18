@@ -118,9 +118,8 @@ def secante(f, x0, x1, tol, max_iter):
     return x1, historial_error
 
 
-# ==========================================
+
 # INTERFAZ DE USUARIO (SIDEBAR)
-# ==========================================
 
 st.sidebar.header("Configuración")
 func_input = st.sidebar.text_input("Función f(x):", "np.exp(-x) - x")
@@ -150,9 +149,8 @@ else: # Secante
     p_x1 = st.sidebar.number_input("Punto x1:", value=1.0)
 
 
-# ==========================================
+
 # BOTÓN DE CÁLCULO Y RESULTADOS
-# ==========================================
 
 if st.sidebar.button("Calcular"):
     try:
