@@ -8,9 +8,8 @@ st.set_page_config(page_title="Calculadora de Métodos Numéricos")
 st.title("Solucionador de Ecuaciones")
 st.write("Encuentra raíces de funciones y analiza el error por iteración.")
 
-# ==========================================
+
 # LÓGICA DE LOS MÉTODOS (FUNCIONES)
-# ==========================================
 
 def biseccion(f, a, b, tol, max_iter):
     # Validar que cambie de signo
