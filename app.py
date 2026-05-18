@@ -5,7 +5,7 @@ import pandas as pd
 
 # --- CONFIGURACIÓN DE LA PÁGINA ---
 st.set_page_config(page_title="Calculadora de Métodos Numéricos", layout="wide")
-st.title("🧮 Solucionador de Ecuaciones")
+st.title("Solucionador de Ecuaciones")
 st.markdown("Encuentra raíces de funciones y analiza el error por iteración.")
 
 # --- LÓGICA DE LOS MÉTODOS ---
@@ -64,7 +64,7 @@ def secante(f, x0, x1, tol, max_iter):
     return x1, max_iter, historial_error
 
 # --- BARRA LATERAL ---
-st.sidebar.header("⚙️ Configuración")
+st.sidebar.header("Configuración")
 func_input = st.sidebar.text_input("Función f(x):", "np.exp(-x) - x")
 metodo = st.sidebar.selectbox("Método:", ["Bisección", "Falsa Posición", "Newton-Raphson", "Secante"])
 tol = st.sidebar.number_input("Tolerancia:", value=1e-5, format="%.1e")
@@ -77,7 +77,7 @@ try:
     f(0) # Prueba rápida
     f_valid = True
 except:
-    st.sidebar.error("⚠️ Error en la función. Revisa la sintaxis.")
+    st.sidebar.error("Error en la función. Revisa la sintaxis.")
 
 st.sidebar.markdown("---")
 # Parámetros por método
@@ -93,7 +93,7 @@ else: # Secante
     p_x1 = st.sidebar.number_input("Punto x1:", value=1.0)
 
 # --- EJECUCIÓN ---
-if st.sidebar.button("🚀 Calcular"):
+if st.sidebar.button("Calcular"):
     if not f_valid:
         st.error("Por favor, corrige la función antes de continuar.")
     else:
@@ -109,7 +109,7 @@ if st.sidebar.button("🚀 Calcular"):
                 col1, col2 = st.columns([1, 1.2])
                 
                 with col1:
-                    st.subheader("📊 Datos del Resultado")
+                    st.subheader("Datos del Resultado")
                     st.success(f"**Raíz hallada:** {res:.8f}")
                     st.info(f"**Total iteraciones:** {iters}")
                     st.warning(f"**Error final estimado:** {errores[-1]:.2e}")
@@ -122,7 +122,7 @@ if st.sidebar.button("🚀 Calcular"):
                     st.dataframe(df_err, use_container_width=True)
 
                 with col2:
-                    st.subheader("📈 Gráfica de la Función")
+                    st.subheader("Gráfica de la Función")
                     fig, ax = plt.subplots()
                     
                     # Definir rango de visualización alrededor de la raíz
@@ -146,5 +146,5 @@ if st.sidebar.button("🚀 Calcular"):
 
 # Botón de reinicio
 st.markdown("---")
-if st.button("🔄 Nueva Ecuación / Otro Método"):
+if st.button("Nueva Ecuación"):
     st.rerun()
